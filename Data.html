@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="aktualnaData"></p>
+    <input type="Date" id="Data"> Wybierz Date <br>
+    <button onclick="obliczanie()">Ile mineło od podanej daty?</button>
+    <p id="Wynik"></p>
+    <script>
+       var dzis = new Date()
+       var dzisdata = dzis.getFullYear() + (dzis.getMonth()+1) + dzis.getDate()
+       document.getElementById("akutalnaData") = dzisdata
+        function obliczanie(){
+            var jedenDzien = 1000*60*60*24;
+            var jednaGodzina = 1000*60*60;
+            var data 
+            data = new Date(document.getElementById("Data").value)
+            data.setHours(0,0,0,0)
+            console.log(data)
+            
+            var dzisiejsza = new Date();
+            let roznia = dzisiejsza - data;
+            console.log(roznia);
+            var roznicaDni = Math.floor(roznia/jedenDzien)
+            var godziny = Math.floor(roznia/jednaGodzina);
+            document.getElementById("Wynik").innerHTML = "Mineło " + roznicaDni + " dni czyli " + godziny + " godzin";
+            
+
+        }
+    </script>
+</body>
+</html>
